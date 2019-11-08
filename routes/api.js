@@ -29,6 +29,15 @@ module.exports = function (app) {
       });
   });
 
+  app.post("/api/workouts", async (req, res) => {
+    db.Exercise.find({})
+      .then(dbExercise => {
+        res.json(dbExercise);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
   // app.put("/api/workouts/:id", async function(req, res){
   //   //db.Exercise.update({_id: req.params.id}, upsertData,{upsert: true})
   //   db.Exercise.create(body)
