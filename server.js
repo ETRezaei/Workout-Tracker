@@ -13,14 +13,17 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+// app.set('views', __dirname + '/views');
+// app.engine('html', require('ejs').renderFile);
+
 mongoose.connect("mongodb://localhost/workout", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
 
 // routes
-app.use(require("./routes/api.js"));
-app.use(require("./routes/view.js"));
+require("./routes/api.js")(app);
+require("./routes/view.js")(app);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
