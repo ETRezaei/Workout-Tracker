@@ -15,8 +15,8 @@ app.use(express.static("public"));
 
 // app.set('views', __dirname + '/views');
 // app.engine('html', require('ejs').renderFile);
-
-mongoose.connect("mongodb://localhost/workout", {
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useFindAndModify: false
 });

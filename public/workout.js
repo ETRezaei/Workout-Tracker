@@ -3,7 +3,7 @@ async function init() {
   console.log(lastWorkout);
 
   document
-    .querySelector("a[href='/exercise?']")
+    .querySelector("[href='/exercise?']")
     .setAttribute("href", `/exercise?id=${lastWorkout._id}`);
 
   const workoutSummary = {
